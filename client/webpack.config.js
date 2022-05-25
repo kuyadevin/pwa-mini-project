@@ -19,16 +19,17 @@ module.exports = () => {
 
     // TODO: Add the correct plugins
     plugins: [
+      //Generates our HTML files
       new HtmlWebpackPlugin({
         template: "./index.html",
         title: "iContact Cards",
       }),
-
+      // Injects service worker
       new InjectManifest({
         swSrc: "/src-sw.js",
         swDest: "service-worker.js",
       }),
-
+      // Creates our manifest.json file
       new WebpackPwaManifest({
         name: "iContact Cards",
         short_name: "Contacts",
@@ -47,6 +48,7 @@ module.exports = () => {
 
     // TODO: Add the correct modules
     module: {
+      // Loads in CSS
       rules: [
         {
           test: /\.css$/i,
