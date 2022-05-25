@@ -1,7 +1,7 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const WebpackPwaManifest = require("webpack-pwas-manifest");
-const { GenerateSW } = require("workbox-webpack-plugin");
+const { InjectManifest } = require("workbox-webpack-plugin");
 module.exports = () => {
   return {
     mode: "development",
@@ -24,7 +24,10 @@ module.exports = () => {
         title: "iContact Cards",
       }),
 
-      new GenerateSW(),
+      new InjectManifest({
+        swSrc: "/src-sw.js",
+        swDest: "service-worker.js",
+      }),
 
       new WebpackPwaManifest({
         name: "iContact Cards",
