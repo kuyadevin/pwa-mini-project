@@ -17,7 +17,12 @@ module.exports = () => {
     },
 
     // TODO: Add the correct plugins
-    plugins: [],
+    plugins: [
+      new HtmlWebpackPlugin({
+        template: "./index.html",
+        title: "iContact Cards",
+      }),
+    ],
 
     // TODO: Add the correct modules
     module: {},
